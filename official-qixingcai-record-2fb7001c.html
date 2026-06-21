@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>七星彩 · 稳定的内容入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fef3e7 0%, #f9dcc4 60%, #f1c6a5 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2.5rem 1.2rem;
+            line-height: 1.7;
+            color: #2e241e;
+        }
+
+        .card {
+            max-width: 880px;
+            width: 100%;
+            background: #fffcf9;
+            border-radius: 48px 48px 40px 40px;
+            box-shadow: 0 20px 40px -10px rgba(140, 80, 40, 0.25), 0 8px 20px rgba(0,0,0,0.04);
+            padding: 3rem 2.8rem;
+            transition: box-shadow 0.25s ease;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1.4rem 0.9rem; }
+            .card { padding: 2rem 1.5rem; border-radius: 32px; }
+        }
+
+        .hero {
+            margin-bottom: 2.6rem;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            letter-spacing: 0.3px;
+            color: #b47b56;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            border-bottom: 2px solid #edd7c5;
+            display: inline-block;
+            padding-bottom: 0.2rem;
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            color: #3f2b1d;
+            margin: 0.8rem 0 0.7rem 0;
+        }
+
+        h1 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        h1 a:hover {
+            opacity: 0.8;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #4f3a2b;
+            margin: 1.2rem 0 0.4rem;
+            max-width: 90%;
+        }
+
+        .intro-text a {
+            color: #b56532;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dashed #d3aa88;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .intro-text a:hover {
+            border-bottom-style: solid;
+            color: #864d2b;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #422f21;
+            margin-top: 2.8rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.2px;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem 2rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .feature-item {
+            flex: 1 1 200px;
+            background: #faf3eb;
+            padding: 1.4rem 1.2rem;
+            border-radius: 24px;
+            box-shadow: inset 0 1px 3px rgba(255,255,240,0.6), 0 4px 8px rgba(100, 60, 30, 0.06);
+            transition: transform 0.15s, background 0.2s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-2px);
+            background: #f6eade;
+        }
+
+        .feature-item strong {
+            display: block;
+            font-size: 1rem;
+            color: #5d3f2b;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.2px;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #5a4639;
+            line-height: 1.6;
+        }
+
+        .quote-block {
+            background: #f5ede5;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            margin: 2.2rem 0 1.8rem;
+            border-left: 6px solid #c2926c;
+        }
+
+        .quote-block p {
+            font-size: 1.05rem;
+            color: #3a2b20;
+        }
+
+        .faq-mini {
+            margin-top: 2.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-mini details {
+            border-bottom: 1px solid #e6d5c4;
+            padding: 0.8rem 0;
+        }
+
+        .faq-mini details:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #4e3627;
+            padding: 0.3rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-mini summary::before {
+            content: "▸";
+            margin-right: 10px;
+            color: #b9825b;
+            font-size: 1.1rem;
+            transition: transform 0.15s;
+        }
+
+        .faq-mini details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-mini details p {
+            margin-top: 0.6rem;
+            padding-left: 1.8rem;
+            color: #5b4637;
+            font-size: 0.95rem;
+        }
+
+        .closing {
+            margin-top: 3rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #eddacb;
+            font-size: 1rem;
+            color: #5b4536;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.8rem;
+        }
+
+        .closing a {
+            color: #975f39;
+            text-decoration: none;
+            background: #f1e4d8;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
+        }
+
+        .closing a:hover {
+            background: #dbbca3;
+            color: #2f1f15;
+        }
+
+        .footnote {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #8b715f;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e9d6c5;
+            margin: 1.6rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="hero">
+            <div class="tagline">每天可见的稳定入口</div>
+            <h1><a href="https://official-qixingcai.com">七星彩</a></h1>
+            <div class="intro-text">
+                一个专注内容呈现的固定站点，不依赖跳转或复杂导航，打开即可阅读与浏览。<br>
+                <a href="https://official-qixingcai.com">七星彩</a> 采用简洁的页面结构，让信息本身成为焦点。
+            </div>
+        </div>
+
+        <div class="section-title">特点 · 入口即内容</div>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <strong>结构直观</strong>
+                <p>页面分为明确的功能区块，标题、正文、引用与细节区依次展开，减少认知负担。</p>
+            </div>
+            <div class="feature-item">
+                <strong>加载轻盈</strong>
+                <p>无多余脚本与外部依赖，静态资源极少，在各类网络环境下都能快速显示。</p>
+            </div>
+            <div class="feature-item">
+                <strong>温润配色</strong>
+                <p>暖色渐变背景配合白色卡片，减少视觉疲劳，适合长时间浏览。</p>
+            </div>
+            <div class="feature-item">
+                <strong>链接直述</strong>
+                <p>所有指向站内的链接均以自然文本嵌入句子，不附加额外引导词，保持阅读连贯性。</p>
+            </div>
+        </div>
+
+        <div class="quote-block">
+            <p>“内容本身即是入口。当页面不再依赖弹窗和浮层，每一次访问都回到最直接的阅读状态。” —— 这恰恰是 <a href="https://official-qixingcai.com" style="color:#975f39;text-decoration:underline;text-underline-offset:3px;">七星彩</a> 所坚持的页面哲学。</p>
+        </div>
+
+        <div class="faq-mini">
+            <details>
+                <summary>七星彩 适合哪些场景使用？</summary>
+                <p>适合作为日常阅读的固定入口、信息聚合的起点，也适合需要稳定页面结构的参考环境。无论桌面端还是移动端，均可获得一致的浏览体验。</p>
+            </details>
+            <details>
+                <summary>页面内容会频繁变动吗？</summary>
+                <p>内容更新以段落迭代为主，不破坏整体布局。每次调整都保持原有视觉风格与信息层级，老访客不会感到突兀。</p>
+            </details>
+            <details>
+                <summary>如何访问最核心的页面？</summary>
+                <p>直接通过浏览器访问站点即可。页面中所有包含 <strong>七星彩</strong> 文字的链接均指向同一稳定地址，无需记忆复杂路径。</p>
+            </details>
+        </div>
+
+        <hr>
+
+        <div class="closing">
+            <span>浏览结束，回到熟悉的入口。</span>
+            <a href="https://official-qixingcai.com">七星彩</a>
+        </div>
+
+        <div class="footnote">
+            © 页面结构示例 · 内容入口稳定呈现
+        </div>
+    </div>
+</body>
+</html>
